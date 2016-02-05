@@ -1,0 +1,24 @@
+doctype html
+html(ng-app="ProjectManger")
+	head
+		meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+
+		title Project
+
+		link(href="/css/main.css" rel="stylesheet" type="text/css")
+	body
+		div#wrapper(ng-controller="PMController")
+			div.fill.container-fluid
+				div.fill.row
+					div.section.col-sm-3
+						div.section.row
+							include ../partials/accountlist.jade
+							include ../partials/projectlist.jade
+							include ../partials/accountdetails.jade
+
+					//include ../partials/tasklist.jade
+					//include ../partials/noteslist.jade
+
+		script(type="text/javascript" src="/js/app.min.js")

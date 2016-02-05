@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="ProjectManger">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project</title>
+    <link href="/css/main.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="wrapper" ng-controller="PMController">
+      <div class="fill container-fluid">
+        <div class="fill row">
+          <div class="section col-sm-3">
+            <div class="section row">
+              <div id="accounts" class="section col-sm-2 center-block">
+                <div ng-repeat="account in accounts" class="account">
+                  <div><a style="background-image:url(img/starz.jpg);" ng-click="current.account = account.id"></a></div>
+                </div>
+                <div class="add-wrapper">
+                  <div class="add">
+                    <button type="submit" ng-click="details=true" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+                  </div>
+                </div>
+              </div>
+              <div id="projects" ng-if="!details" class="section col-sm-10">
+                <div class="account-title">
+                  <h3>{{(accounts | filter: {id:current.account})[0].name}} <a ng-click="details=true" class="glyphicon glyphicon-cog"></a></h3>
+                </div>
+                <div ng-repeat="folder in folders | filter: {account: current.account}" class="folder">
+                  <h4>{{folder.name}}</h4>
+                  <div ng-repeat="project in projects | filter:{folder: folder.id} " class="item">
+                    <h6>{{project.job}} - {{project.name}}</h6>
+                  </div>
+                </div>
+              </div>
+              <div id="details" ng-if="details" class="section col-sm-10">
+                <h3>ADD ACCOUNT</h3>
+                <form>
+                  <div ng-class="{'has-error':detailsData.nameerror}" class="form-group">
+                    <label for="accountname">Account Name {{detailsData.name}}</label>
+                    <input id="accountname" type="text" ng-model="detailsData.name" class="form-control">
+                    <p ng-show="detailsData.nameerror" class="help-block">Please enter a name</p>
+                  </div>
+                  <!--div.form-group
+                  label(for="accounticon") Account Icon
+                  input#accounticon(type="file")
+                  p.help-block.
+                  	Recommend size 500x500. <br />
+                  	No more the 2MB.
+                  -->
+                  <!--div.form-group
+                  label(for="accountpriority") Priority
+                  input#accountpriority.form-control(type="number" value="{{accounts.length}}")
+                  p.help-block Leave to add to bottom
+                  -->
+                  <button type="submit" ng-click="addaccount()" class="btn btn-primary">Submit</button><a role="button" ng-click="canceladdaccount()" class="cancel">Cancel</a>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!--include ../partials/tasklist.jade-->
+          <!--include ../partials/noteslist.jade-->
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/js/app.min.js"></script>
+  </body>
+</html>

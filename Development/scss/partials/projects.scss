@@ -1,0 +1,21 @@
+#projects{
+	background: $project-bg;
+
+	.account-title{
+		color: $account-title-color;
+		text-transform: uppercase;
+
+		a{
+			//float: right;
+			color: $account-action-color;
+			font-size: 18px;
+			display: none;
+		}
+
+		&:hover{
+			a{
+				display: inline-block;
+			}
+		}
+	}
+}

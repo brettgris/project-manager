@@ -1,0 +1,7 @@
+div#projects.section.col-sm-10(ng-if="!details")
+	div.account-title
+		h3 {{(accounts | filter: {id:current.account})[0].name}} 
+			a.glyphicon.glyphicon-cog(ng-click="details=true")
+	div.folder(ng-repeat="folder in folders | filter: {account: current.account}")
+		h4 {{folder.name}}
+		include ../partials/projectitem.jade

@@ -1,0 +1,23 @@
+@import "compass/css3";
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css";
+
+$imgPath:"../img/";
+
+/************************  VARIABLES  ************************/
+@import '../partials/_colors.scss';
+@import '../partials/_borders.scss';
+@import '../partials/_sizes.scss';
+@import '../partials/_type.scss';
+@import '../partials/_zindex.scss';
+@import '../partials/_breakpoints.scss';
+
+/************************  GLOBALS  ************************/
+@import '../partials/globals.scss';
+@import '../partials/page.scss';
+
+/************************  PARTS  ************************/
+@import '../partials/accounts.scss';
+@import '../partials/accountdetails.scss';
+@import '../partials/projects.scss';
+@import '../partials/tasks.scss';
+@import '../partials/notes.scss';
