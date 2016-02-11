@@ -1,20 +1,87 @@
 #projects{
 	background: $project-bg;
+	padding: 0;
 
 	.account-title{
 		color: $account-title-color;
 		text-transform: uppercase;
+		padding: 0 10px;
 
 		a{
-			//float: right;
 			color: $account-action-color;
 			font-size: 18px;
 			display: none;
+			margin-left: 5px;
 		}
 
 		&:hover{
 			a{
 				display: inline-block;
+			}
+		}
+	}
+
+	.folders {
+		padding: 0 10px;
+
+		.folder-title{
+			color: $folder-title-color;
+			margin-top: 20px;
+			text-transform: uppercase;
+			padding-bottom: 3px;
+
+			&.visible{
+				border-bottom: $folder-border-color;
+			}
+			
+			a{
+				margin-left: 5px;
+				color: $folder-title-color;
+				display: none;
+
+				&.visible {
+					float: right;
+					display: inline-block;
+				}
+			}
+
+			&:hover{
+				a{
+					display: inline-block;
+				}
+			}
+		}
+	}
+
+	.project-item{
+		color: $project-item-color;
+
+		a.edit{
+			margin-left: 5px;
+			color: $project-item-color;
+			display: none;
+			float: right;
+		}
+
+		&:hover{
+			a.edit{
+				display: inline-block;
+			}
+		}
+	}
+
+	.add-wrapper{
+		position: absolute;
+		bottom: 10px;
+		width:100%;
+
+		.add{
+			width: 90%;
+			margin: auto;
+			
+			button{
+				width:100%;
+				padding: 5px 0;
 			}
 		}
 	}

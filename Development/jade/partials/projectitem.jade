@@ -1,2 +1,5 @@
-div.item(ng-repeat="project in projects | filter:{folder: folder.id} ")
-	h6 {{project.job}} - {{project.name}}
+div.project-item(ng-repeat="project in projects | filter:{folder: folder.id} " ng-show="folder.visible")
+	h6 {{project.name}}
+		a.edit.glyphicon.glyphicon-option-horizontal(ng-click="project.edit=!project.edit")
+		div.edits(ng-if="project.edit")
+			a(ng-repeat="cf in folders | filter: {account: current.account}") {{cf.name}} 

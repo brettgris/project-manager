@@ -1,15 +1,64 @@
 #details{
-	
-	
 	form{
 		margin-top: 30px;
 
 		.form-group{
 			margin-top: 20px;
+
+			.hide{
+				display:none;
+			}
+
+			#accounticon{
+				background-size: contain;
+				width: 202px;
+				height: 202px;
+				border: $file-upload-border;
+				text-align: center;
+				overflow: hidden;
+
+				span{
+					margin-top: 75px;
+					font-size: 50px;
+
+					&.hide{
+						display: none;
+					}
+				}
+
+				.loader{
+					background: center center no-repeat;
+					background-image: url(../img/loader.gif);
+					height: 50px;
+					margin-top: 75px;
+
+					&.hide{
+						display: none;
+					}
+				}
+
+				.previewimage{
+					width:200px;
+					height:200px;
+					background-size: contain;
+
+					&.hide{
+						display: none;
+					}
+				}
+
+				.dz-image, .dz-details, .dz-progress, .dz-error-message, .dz-success-mark, .dz-error-mark{
+					display: none;
+				}
+			}
 		}
 
 		.btn{
-			margin-top: 20px;
+			margin-top: 0px;
+
+			&.btn-danger{
+				float:right;
+			}
 		}
 
 		.cancel{
@@ -19,3 +68,4 @@
 	}
 	
 }
+

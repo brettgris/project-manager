@@ -15,3 +15,23 @@ a{
 	min-height: 100%;
 }
 
+.module{
+	position: absolute;
+	z-index: $module-zindex;
+	width: $module-width;
+	left: 50%;
+	margin-left: $module-width/-2;
+	height: auto;
+	background: white;
+	border: $module-border;
+	padding: 10px 20px 20px 20px;
+	top: 100px;
+
+	@include box-shadow(rgba(0,0,0,.3) 0px 0px 30px);
+	@include border-radius(20px);
+
+	&.hidden{
+		display:none;
+	}
+}
+

@@ -1,7 +1,16 @@
-div#projects.section.col-sm-10(ng-if="!details")
+div#projects.section.col-sm-10
 	div.account-title
-		h3 {{(accounts | filter: {id:current.account})[0].name}} 
-			a.glyphicon.glyphicon-cog(ng-click="details=true")
-	div.folder(ng-repeat="folder in folders | filter: {account: current.account}")
-		h4 {{folder.name}}
-		include ../partials/projectitem.jade
+		h3 {{current.account.doc.name}} 
+			a.glyphicon.glyphicon-cog(ng-click="updateaccount('UPDATE')")
+	div.folders
+		div.folder(ng-repeat="folder in folders | filter: {account: current.account}")
+			h4.folder-title(ng-class="{visible:folder.visible}") {{folder.name}}
+				a.glyphicon.glyphicon-cog
+				a.visible.glyphicon(class="{{ (folder.visible) ? 'glyphicon-chevron-down' : 'glyphicon-chevron-right' }}" ng-click="folder.visible=!folder.visible")
+			include ../partials/projectitem.jade
+			div.add-project(ng-show="folder.visible")
+				a.glyphicon.glyphicon-plus
+	//- div.add-wrapper
+		div.add
+			button.btn.btn-default(type="submit")
+				a.glyphicon.glyphicon-plus

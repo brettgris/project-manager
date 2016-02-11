@@ -1,16 +1,27 @@
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css";
 /************************  VARIABLES  ************************/
 /**************** COLORS **********************/
-/**************** GLOBALS *********************/
+/**************** FONT *********************/
 /**************** ACCOUNTS ********************/
 /**************** PROJECTS ********************/
 /***************** TASKS **********************/
 /***************** NOTES **********************/
 /**************** GLOBALS *********************/
+/**************** MODULE *********************/
+/**************** ACCOUNTS ********************/
+/**************** DETAILS ********************/
+/**************** PROJECTS ********************/
+/***************** TASKS **********************/
+/***************** NOTES **********************/
+/**************** GLOBALS *********************/
+/**************** MODULE *********************/
 /**************** ACCOUNTS ********************/
 /**************** PROJECTS ********************/
 /***************** TASKS **********************/
 /***************** NOTES **********************/
+h4 {
+  font-size: 16px; }
+
 /************************  GLOBALS  ************************/
 /**************** GLOBALS *********************/
 a {
@@ -26,6 +37,26 @@ a {
   height: 100%;
   min-height: 100%; }
 
+.module {
+  position: absolute;
+  z-index: 1000;
+  width: 800px;
+  left: 50%;
+  margin-left: -400px;
+  height: auto;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px 20px 20px 20px;
+  top: 100px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 30px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 30px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 30px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px; }
+  .module.hidden {
+    display: none; }
+
 /**************** PAGE *********************/
 html, body {
   height: 100%; }
@@ -38,24 +69,24 @@ html, body {
 /************************  PARTS  ************************/
 #accounts {
   background: #202a33;
-  padding: 0; }
+  padding: 5px 0 0 0; }
   #accounts .account {
-    padding-top: 70%;
-    position: relative; }
+    padding-top: 85%;
+    position: relative;
+    margin-bottom: 5px; }
     #accounts .account.selected {
-      background: yellow; }
+      background: #405366; }
     #accounts .account div a {
       display: block;
       width: 70%;
       left: 50%;
       margin-left: -35%;
-      height: 100%;
+      height: 80%;
       top: 0;
       position: absolute;
       background: #000;
       background-size: contain;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 5px;
       -moz-border-radius: 50%;
       -webkit-border-radius: 50%;
       border-radius: 50%; }
@@ -74,23 +105,94 @@ html, body {
   margin-top: 30px; }
   #details form .form-group {
     margin-top: 20px; }
+    #details form .form-group .hide {
+      display: none; }
+    #details form .form-group #accounticon {
+      background-size: contain;
+      width: 202px;
+      height: 202px;
+      border: 1px solid #999;
+      text-align: center;
+      overflow: hidden; }
+      #details form .form-group #accounticon span {
+        margin-top: 75px;
+        font-size: 50px; }
+        #details form .form-group #accounticon span.hide {
+          display: none; }
+      #details form .form-group #accounticon .loader {
+        background: center center no-repeat;
+        background-image: url(../img/loader.gif);
+        height: 50px;
+        margin-top: 75px; }
+        #details form .form-group #accounticon .loader.hide {
+          display: none; }
+      #details form .form-group #accounticon .previewimage {
+        width: 200px;
+        height: 200px;
+        background-size: contain; }
+        #details form .form-group #accounticon .previewimage.hide {
+          display: none; }
+      #details form .form-group #accounticon .dz-image, #details form .form-group #accounticon .dz-details, #details form .form-group #accounticon .dz-progress, #details form .form-group #accounticon .dz-error-message, #details form .form-group #accounticon .dz-success-mark, #details form .form-group #accounticon .dz-error-mark {
+        display: none; }
   #details form .btn {
-    margin-top: 20px; }
+    margin-top: 0px; }
+    #details form .btn.btn-danger {
+      float: right; }
   #details form .cancel {
     display: block;
     margin-top: 20px; }
 
 #projects {
-  background: #303e4d; }
+  background: #303e4d;
+  padding: 0; }
   #projects .account-title {
     color: #fff;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    padding: 0 10px; }
     #projects .account-title a {
-      color: #202a33;
+      color: #ccc;
       font-size: 18px;
-      display: none; }
+      display: none;
+      margin-left: 5px; }
     #projects .account-title:hover a {
       display: inline-block; }
+  #projects .folders {
+    padding: 0 10px; }
+    #projects .folders .folder-title {
+      color: #ccc;
+      margin-top: 20px;
+      text-transform: uppercase;
+      padding-bottom: 3px; }
+      #projects .folders .folder-title.visible {
+        border-bottom: 1px solid #888; }
+      #projects .folders .folder-title a {
+        margin-left: 5px;
+        color: #ccc;
+        display: none; }
+        #projects .folders .folder-title a.visible {
+          float: right;
+          display: inline-block; }
+      #projects .folders .folder-title:hover a {
+        display: inline-block; }
+  #projects .project-item {
+    color: #888; }
+    #projects .project-item a.edit {
+      margin-left: 5px;
+      color: #888;
+      display: none;
+      float: right; }
+    #projects .project-item:hover a.edit {
+      display: inline-block; }
+  #projects .add-wrapper {
+    position: absolute;
+    bottom: 10px;
+    width: 100%; }
+    #projects .add-wrapper .add {
+      width: 90%;
+      margin: auto; }
+      #projects .add-wrapper .add button {
+        width: 100%;
+        padding: 5px 0; }
 
 #tasks {
   background: #ccc; }

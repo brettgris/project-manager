@@ -1,22 +1,29 @@
 /**************** COLORS **********************/
 $blue1: #202a33;
 $blue2: #303e4d;
+$blue3: #405366;
 $light-grey: #ccc;
+$mdlgt-grey: #888;
 $med-grey: #666;
 $white: #fff;
 $black: #000;
 
-/**************** GLOBALS *********************/
+/**************** FONT *********************/
 
 /**************** ACCOUNTS ********************/
 $account-bg: $blue1;
 $account-item-bg: $black;
+$account-selected: $blue3;
 
 /**************** PROJECTS ********************/
 $project-bg: $blue2;
 
 $account-title-color: $white;
-$account-action-color: $blue1;
+$account-action-color: $light-grey;
+
+$folder-title-color: $light-grey;
+$project-item-color: $mdlgt-grey;
+
 
 /***************** TASKS **********************/
 $tasks-bg: $light-grey;

@@ -1,8 +1,8 @@
-div#details.section.col-sm-10(ng-if="details")
-	h3 ADD ACCOUNT
+div#details.module(ng-if="details")
+	h3 {{detailsData.type}} ACCOUNT 
 	form
 		div.form-group(ng-class="{'has-error':detailsData.nameerror}")
-			label(for="accountname") Account Name {{detailsData.name}}
+			label(for="accountname") Account Name
 			input#accountname.form-control(type="text" ng-model="detailsData.name")
 			p.help-block(ng-show="detailsData.nameerror") Please enter a name
 		//div.form-group
@@ -15,5 +15,5 @@ div#details.section.col-sm-10(ng-if="details")
 			label(for="accountpriority") Priority
 			input#accountpriority.form-control(type="number" value="{{accounts.length}}")
 			p.help-block Leave to add to bottom
-		button.btn.btn-primary(type="submit" ng-click="addaccount()") Submit
+		button.btn.btn-primary(type="submit" ng-click="addaccount()") {{ (detailsData.type=='ADD') ? 'Submit' : 'Update' }}
 		a.cancel(role="button" ng-click="canceladdaccount()") Cancel
