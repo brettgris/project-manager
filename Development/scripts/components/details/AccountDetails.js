@@ -1,6 +1,6 @@
 var React = require('react');
 var Reflux = require('reflux');
-var Actions = require('../../models/Actions');
+var AccountActions = require('../../models/AccountActions');
 var AccountsStore = require('../../models/AccountsStore');
 var Dropzone = require('dropzone');
 
@@ -94,9 +94,9 @@ var AccountDetails = React.createClass({
 			data["_id"] = this.state.account.id;
 			data["_rev"] = this.state.account.doc._rev;
 
-			Actions.updateAccount(data);
+			AccountActions.updateAccount(data);
 		} else {
-			Actions.updateAccount(data);
+			AccountActions.updateAccount(data);
 		}
 	},
 	nameChange: function (e) {
@@ -111,10 +111,11 @@ var AccountDetails = React.createClass({
 		});
 	},
 	deleteAccount: function () {
-		Actions.deleteAccount(this.state.account.id, this.state.account.doc._rev);
+		var data = this.state.account.doc;
+		AccountActions.deleteAccount(data);
 	},
 	cancel: function () {
-		Actions.showAccountDetails('');
+		AccountActions.showAccountDetails('');
 	},
 	render: function () {
 		var detailsclass = this.state.show == "" ? "module hidden" : "module";

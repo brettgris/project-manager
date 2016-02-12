@@ -32,8 +32,8 @@ var App = React.createClass({
 							React.createElement(Projects, null)
 						)
 					),
-					React.createElement(Tasks, null),
-					React.createElement(Notes, null)
+					React.createElement(Notes, null),
+					React.createElement(Tasks, null)
 				)
 			),
 			React.createElement(AccountDetails, null)

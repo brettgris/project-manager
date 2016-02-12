@@ -1,16 +1,25 @@
 var React = require('react');
-
 var Reflux = require('reflux');
-var Actions = require('../../models/Actions');
+
+var AccountActions = require('../../models/AccountActions');
 var AccountsStore = require('../../models/AccountsStore');
+var FolderActions = require('../../models/FolderActions');
+var FolderStore = require('../../models/FolderStore');
+var ProjectActions = require('../../models/ProjectActions');
+var ProjectStore = require('../../models/ProjectStore');
+
+var FolderAdd = require('./children/FolderAdd');
+var FolderItem = require('./children/FolderItem');
 
 var Projects = React.createClass({
 	displayName: 'Projects',
 
-	mixins: [Reflux.listenTo(AccountsStore, 'changeAccount')],
+	mixins: [Reflux.listenTo(AccountsStore, 'changeAccount'), Reflux.listenTo(FolderStore, 'changeFolders'), Reflux.listenTo(ProjectStore, 'changeProjects')],
 	getInitialState: function () {
 		return {
-			account: {}
+			account: {},
+			folders: [],
+			projects: []
 		};
 	},
 	changeAccount: function (e, data) {
@@ -19,15 +28,34 @@ var Projects = React.createClass({
 				account: data.current
 			});
 
-			console.log("load folders");
-			console.log("load projects");
+			FolderActions.getFolders(this.state.account.id);
 		}
 	},
+	changeFolders: function (e, data) {
+		this.setState({
+			folders: data.folders
+		});
+
+		ProjectActions.getProjects(this.state.account.id);
+	},
+	changeProjects: function (e, data) {
+		this.setState({
+			projects: data.projects
+		});
+	},
 	editAccount: function () {
-		Actions.showAccountDetails('UPDATE');
+		AccountActions.showAccountDetails('UPDATE');
+	},
+	addFolder: function (data) {
+		data.account = this.state.account.id;
+		FolderActions.addFolder(data, this.state.account.id);
 	},
 	render: function () {
 		var name = this.state.account['doc'] ? this.state.account.doc.name : "";
+
+		var createFolders = this.state.folders.map(function (item, key) {
+			return React.createElement(FolderItem, { data: item, key: item.id, id: key, folders: this.state.folders, projects: this.state.projects });
+		}.bind(this));
 
 		return React.createElement(
 			'div',
@@ -42,6 +70,12 @@ var Projects = React.createClass({
 					name,
 					React.createElement('a', { onClick: this.editAccount, className: 'glyphicon glyphicon-cog' })
 				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'folders' },
+				createFolders,
+				React.createElement(FolderAdd, { addFolder: this.addFolder })
 			)
 		);
 	}

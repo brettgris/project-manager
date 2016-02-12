@@ -11,9 +11,10 @@ var service = {
 			}
 		});
 	},
-	get: function (url, data) {
+	get: function (url, data, val) {
 		if (!this.dbs[url]) this.init(url, data);
-		return this.dbs[url].allDocs({
+		return this.dbs[url].query("docview/docview", {
+			key: val,
 			include_docs: true
 		}).then(function (response) {
 			return response;

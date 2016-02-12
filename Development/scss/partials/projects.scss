@@ -1,6 +1,7 @@
 #projects{
 	background: $project-bg;
 	padding: 0;
+	overflow-y: auto;
 
 	.account-title{
 		color: $account-title-color;
@@ -24,7 +25,7 @@
 	.folders {
 		padding: 0 10px;
 
-		.folder-title{
+		.folder-title, .folder-add{
 			color: $folder-title-color;
 			margin-top: 20px;
 			text-transform: uppercase;
@@ -51,37 +52,108 @@
 				}
 			}
 		}
-	}
 
-	.project-item{
-		color: $project-item-color;
+		.folder-input{
+			.form-group{
+				margin-bottom: 5px;
 
-		a.edit{
-			margin-left: 5px;
-			color: $project-item-color;
-			display: none;
-			float: right;
-		}
+				.form-control{
+					display: inline-block;
+					width: 80%;
+				}
 
-		&:hover{
-			a.edit{
-				display: inline-block;
+				.btn{
+					vertical-align: top;
+				}
 			}
 		}
 	}
 
-	.add-wrapper{
-		position: absolute;
-		bottom: 10px;
-		width:100%;
+	.project-item{
+		color: $project-item-color;
+		
+		.project-title{
+			&.hide{
+				display: none;
+			}
 
-		.add{
-			width: 90%;
-			margin: auto;
-			
-			button{
-				width:100%;
-				padding: 5px 0;
+			a{
+				margin-left: 5px;
+				color: $project-item-color;
+				display: none;
+				font-size: 10px;
+
+				&.edit{
+					float: right;
+				}
+			}
+
+			&:hover{
+				a{
+					display: inline-block;
+				}
+			}
+		}
+
+		.move-folder{
+			display: block;
+			color: $project-item-info-color;
+
+			&.hide{
+				display: none;
+			}
+
+			a{
+				cursor: pointer;
+				padding-right: 3px;
+			}
+		}
+
+		.edit-project{
+			&.hide{
+				display:none;
+			}
+
+			.form-group{
+				margin-bottom: 5px;
+
+				.form-control{
+					display: inline-block;
+					width: 80%;
+				}
+
+				.btn{
+					vertical-align: top;
+				}
+			}
+		}
+	}
+
+	.project-add{
+		.projectaddbtn{
+			color: $project-item-color;
+
+			&.hide{
+				display:none;
+			}
+		}
+
+		.project-input{
+			&.hide{
+				display:none;
+			}
+
+			.form-group{
+				margin-bottom: 5px;
+
+				.form-control{
+					display: inline-block;
+					width: 80%;
+				}
+
+				.btn{
+					vertical-align: top;
+				}
 			}
 		}
 	}

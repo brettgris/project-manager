@@ -1,7 +1,7 @@
 var React = require('react');
 
 var Reflux = require('reflux');
-var Actions = require('../../models/Actions');
+var AccountActions = require('../../models/AccountActions');
 var AccountsStore = require('../../models/AccountsStore');
 
 var AccountButton = require('./children/AccountButton');
@@ -22,13 +22,13 @@ var Accounts = React.createClass({
 		})
 	},
 	componentWillMount: function(){
-		Actions.getAccounts();
+		AccountActions.getAccounts();
 	},
 	switchAccount: function(id){
-		Actions.switchAccount(id);
+		AccountActions.switchAccount(id);
 	},
 	handleNewAccount: function(){
-		Actions.showAccountDetails('ADD');
+		AccountActions.showAccountDetails('ADD');
 	},
 	render: function(){
 		var accountItems = this.state.accounts.map( function(item,key) {

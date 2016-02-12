@@ -1,6 +1,6 @@
 var Reflux = require('reflux');
 
-var Actions = Reflux.createActions([
+var AccountActions = Reflux.createActions([
 	'getAccounts',
 	'switchAccount',
 	'updateAccount',
@@ -8,4 +8,4 @@ var Actions = Reflux.createActions([
 	'deleteAccount'
 ]);
 
-module.exports = Actions;
+module.exports = AccountActions;

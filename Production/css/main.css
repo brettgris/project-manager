@@ -35,7 +35,8 @@ a {
 
 .section {
   height: 100%;
-  min-height: 100%; }
+  min-height: 100%;
+  overflow: hidden; }
 
 .module {
   position: absolute;
@@ -56,6 +57,22 @@ a {
   border-radius: 20px; }
   .module.hidden {
     display: none; }
+
+::-webkit-scrollbar {
+  width: 5px;
+  margin-right: 5px; }
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
+
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+  background: #999; }
+
+::-webkit-scrollbar-track {
+  background: transparent; }
 
 /**************** PAGE *********************/
 html, body {
@@ -144,7 +161,8 @@ html, body {
 
 #projects {
   background: #303e4d;
-  padding: 0; }
+  padding: 0;
+  overflow-y: auto; }
   #projects .account-title {
     color: #fff;
     text-transform: uppercase;
@@ -158,41 +176,72 @@ html, body {
       display: inline-block; }
   #projects .folders {
     padding: 0 10px; }
-    #projects .folders .folder-title {
+    #projects .folders .folder-title, #projects .folders .folder-add {
       color: #ccc;
       margin-top: 20px;
       text-transform: uppercase;
       padding-bottom: 3px; }
-      #projects .folders .folder-title.visible {
+      #projects .folders .folder-title.visible, #projects .folders .folder-add.visible {
         border-bottom: 1px solid #888; }
-      #projects .folders .folder-title a {
+      #projects .folders .folder-title a, #projects .folders .folder-add a {
         margin-left: 5px;
         color: #ccc;
         display: none; }
-        #projects .folders .folder-title a.visible {
+        #projects .folders .folder-title a.visible, #projects .folders .folder-add a.visible {
           float: right;
           display: inline-block; }
-      #projects .folders .folder-title:hover a {
+      #projects .folders .folder-title:hover a, #projects .folders .folder-add:hover a {
         display: inline-block; }
+    #projects .folders .folder-input .form-group {
+      margin-bottom: 5px; }
+      #projects .folders .folder-input .form-group .form-control {
+        display: inline-block;
+        width: 80%; }
+      #projects .folders .folder-input .form-group .btn {
+        vertical-align: top; }
   #projects .project-item {
     color: #888; }
-    #projects .project-item a.edit {
+    #projects .project-item .project-title.hide {
+      display: none; }
+    #projects .project-item .project-title a {
       margin-left: 5px;
       color: #888;
       display: none;
-      float: right; }
-    #projects .project-item:hover a.edit {
+      font-size: 10px; }
+      #projects .project-item .project-title a.edit {
+        float: right; }
+    #projects .project-item .project-title:hover a {
       display: inline-block; }
-  #projects .add-wrapper {
-    position: absolute;
-    bottom: 10px;
-    width: 100%; }
-    #projects .add-wrapper .add {
-      width: 90%;
-      margin: auto; }
-      #projects .add-wrapper .add button {
-        width: 100%;
-        padding: 5px 0; }
+    #projects .project-item .move-folder {
+      display: block;
+      color: #fff; }
+      #projects .project-item .move-folder.hide {
+        display: none; }
+      #projects .project-item .move-folder a {
+        cursor: pointer;
+        padding-right: 3px; }
+    #projects .project-item .edit-project.hide {
+      display: none; }
+    #projects .project-item .edit-project .form-group {
+      margin-bottom: 5px; }
+      #projects .project-item .edit-project .form-group .form-control {
+        display: inline-block;
+        width: 80%; }
+      #projects .project-item .edit-project .form-group .btn {
+        vertical-align: top; }
+  #projects .project-add .projectaddbtn {
+    color: #888; }
+    #projects .project-add .projectaddbtn.hide {
+      display: none; }
+  #projects .project-add .project-input.hide {
+    display: none; }
+  #projects .project-add .project-input .form-group {
+    margin-bottom: 5px; }
+    #projects .project-add .project-input .form-group .form-control {
+      display: inline-block;
+      width: 80%; }
+    #projects .project-add .project-input .form-group .btn {
+      vertical-align: top; }
 
 #tasks {
   background: #ccc; }

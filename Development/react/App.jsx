@@ -21,8 +21,8 @@ var App = React.createClass({
 								<Projects />
 							</div>
 						</div>
-						<Tasks />
 						<Notes />
+						<Tasks />
 					</div>
 				</div>
 				<AccountDetails />

@@ -1,6 +1,6 @@
 var HTTP = require('../services/httpservice');
 var Reflux = require('reflux');
-var Actions = require('./actions');
+var AccountActions = require('./AccountActions');
 var _ = require('underscore');
 
 var obj = {
@@ -9,7 +9,7 @@ var obj = {
 }
 
 var AccountsStore = Reflux.createStore({
-	listenables: [Actions],
+	listenables: [AccountActions],
 	data: {},
 	getAccounts: function(){
 		this.data.new = true;
@@ -18,7 +18,7 @@ var AccountsStore = Reflux.createStore({
 		this.data.newdata = true;
 	},
 	loadAccounts: function(){
-		HTTP.get('accounts', obj).then(function(data){
+		HTTP.get('accounts', obj, true).then(function(data){
 			this.data.accounts = data.rows;
 			if (this.data.new) {
 				this.data.current = this.data.accounts[0];
@@ -66,8 +66,9 @@ var AccountsStore = Reflux.createStore({
 			}.bind(this));
 		}
 	},
-	deleteAccount:function(id,rev){
-		HTTP.remove('accounts',id,rev).then(function(res){
+	deleteAccount:function(data){
+		data.active = false
+		HTTP.put('accounts',data).then(function(res){
 			this.getAccounts();
 			this.data.current = this.data.accounts[0];
 			this.data.details ='';
