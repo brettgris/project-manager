@@ -78,15 +78,12 @@
 					}
 				}
 
-				.task-input{
-					height: 30px;
+				.task-input, .edit{
 					width: 92%;
 					margin: auto;
 
-					
-
 					.form-group{
-						display: none;
+						margin-bottom: 5px;
 
 						.form-control{
 							display: inline-block;
@@ -103,6 +100,18 @@
 						.form-group{
 							display: block;
 						}	
+					}
+				}
+
+				.edit{
+					margin-bottom: 15px;
+				}
+
+				.task-input {
+					height: 30px;
+
+					.form-group{
+						display: none;
 					}
 				}
 			}

@@ -38,7 +38,7 @@ var Accounts = React.createClass({
         }, this);
 
 		return (
-			<div className="col-sm-2 section" id="accounts">
+			<div className="col-sm-2 section col-xs-2" id="accounts">
 				{accountItems}
 				<AccountButton handleClick={this.handleNewAccount} />
 			</div>

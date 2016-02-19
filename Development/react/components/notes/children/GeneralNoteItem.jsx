@@ -53,12 +53,10 @@ var GeneralNoteItem = React.createClass({
 	render: function(){
 		var setView = function(self){
 			if (!self.state.edit) {
-				var date = moment.unix(self.props.data.doc.created).format('MMMM Do YYYY, h:mm a');
 				return(
 					<div className="note">
 						<div className={self.props.data.doc.type} dangerouslySetInnerHTML={{__html:self.props.data.doc.copy}}></div>
 						<div className="details">
-							{date}
 							<div className="icons">
 								<span className="edit glyphicon glyphicon-pencil" onClick={self.editNote}></span>
 								<span className="remove glyphicon glyphicon-remove" onClick={self.deleteNote}></span>

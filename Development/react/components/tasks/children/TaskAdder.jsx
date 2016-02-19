@@ -11,7 +11,9 @@ var TaskAdder = React.createClass({
 			name: e.target.value
 		})
 	},
-	onSubmit: function(){
+	onSubmit: function(e){
+		e.preventDefault();
+
 		if (this.state.name.length>0) {
 			var data = {
 				name: this.state.name,
@@ -22,14 +24,13 @@ var TaskAdder = React.createClass({
 			this.props.onAdd(data)
 		}
 		
-		
 		this.setState({
 			name: ""
 		});
 	},
 	render: function(){
 		return(
-			<form className="task-input">
+			<form className="task-input" onSubmit={this.onSubmit}> 
 				<div className="form-group">
 					<input type="text" className="form-control" id="taskname" placeholder="Task Name" value={this.state.name} onChange={this.onChange}></input>
 					<button type="button" className="btn btn-default" onClick={this.onSubmit}>

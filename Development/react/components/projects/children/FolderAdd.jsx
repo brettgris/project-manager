@@ -17,7 +17,9 @@ var FolderAdd = React.createClass({
 			visible: true
 		});
 	},
-	onSubmit: function(){
+	onSubmit: function(e){
+		e.preventDefault();
+
 		var n = this.state.name;
 
 		if (n.length>1) this.props.addFolder({name: n});
@@ -42,7 +44,7 @@ var FolderAdd = React.createClass({
 				);
 			} else {
 				return (
-					<form className="folder-input">
+					<form className="folder-input" onSubmit={self.onSubmit}>
 						<div className="form-group">
 							<input type="text" className="form-control" id="foldername" placeholder="Folder Name" value={self.state.name} onChange={self.onChange}></input>
 							<button type="button" className="btn btn-default" onClick={self.onSubmit}>

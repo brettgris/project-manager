@@ -19,7 +19,9 @@ var ProjectAdd = React.createClass({
 			name: e.target.value
 		})
 	},
-	addProject: function(){
+	addProject: function(e){
+		e.preventDefault();
+
 		if (this.state.name.length>1){
 			var data = {
 				name: this.state.name,
@@ -42,7 +44,7 @@ var ProjectAdd = React.createClass({
 		return(
 			<h6 className="project-add">
 				<a onClick={this.showAdd} className={"projectaddbtn glyphicon glyphicon-plus "+editbtnvisible}></a>
-				<form className={"project-input "+formvisible}>
+				<form className={"project-input "+formvisible} onSubmit={this.addProject}>
 					<div className="form-group">
 						<input type="text" className="form-control" id="foldername" placeholder="Project Name" value={this.state.name} onChange={this.onChange}></input>
 						<button type="button" className="btn btn-default" onClick={this.addProject}>

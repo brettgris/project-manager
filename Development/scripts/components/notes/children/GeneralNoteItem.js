@@ -55,7 +55,6 @@ var GeneralNoteItem = React.createClass({
 	render: function () {
 		var setView = function (self) {
 			if (!self.state.edit) {
-				var date = moment.unix(self.props.data.doc.created).format('MMMM Do YYYY, h:mm a');
 				return React.createElement(
 					'div',
 					{ className: 'note' },
@@ -63,7 +62,6 @@ var GeneralNoteItem = React.createClass({
 					React.createElement(
 						'div',
 						{ className: 'details' },
-						date,
 						React.createElement(
 							'div',
 							{ className: 'icons' },

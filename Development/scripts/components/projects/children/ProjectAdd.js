@@ -21,7 +21,9 @@ var ProjectAdd = React.createClass({
 			name: e.target.value
 		});
 	},
-	addProject: function () {
+	addProject: function (e) {
+		e.preventDefault();
+
 		if (this.state.name.length > 1) {
 			var data = {
 				name: this.state.name,
@@ -47,7 +49,7 @@ var ProjectAdd = React.createClass({
 			React.createElement('a', { onClick: this.showAdd, className: "projectaddbtn glyphicon glyphicon-plus " + editbtnvisible }),
 			React.createElement(
 				'form',
-				{ className: "project-input " + formvisible },
+				{ className: "project-input " + formvisible, onSubmit: this.addProject },
 				React.createElement(
 					'div',
 					{ className: 'form-group' },

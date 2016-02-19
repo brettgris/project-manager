@@ -39,7 +39,7 @@ var Accounts = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: 'col-sm-2 section', id: 'accounts' },
+			{ className: 'col-sm-2 section col-xs-2', id: 'accounts' },
 			accountItems,
 			React.createElement(AccountButton, { handleClick: this.handleNewAccount })
 		);

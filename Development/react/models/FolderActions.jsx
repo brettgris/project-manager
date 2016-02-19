@@ -2,7 +2,8 @@ var Reflux = require('reflux');
 
 var FolderActions = Reflux.createActions([
 	'getFolders',
-	'addFolder'
+	'addFolder',
+	'updateFolder'
 ]);
 
 module.exports = FolderActions;

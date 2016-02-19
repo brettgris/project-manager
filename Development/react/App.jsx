@@ -10,22 +10,34 @@ var Tasks = require('./components/tasks/Tasks');
 var Notes = require('./components/notes/Notes');
 
 var App = React.createClass({
+	getInitialState: function(){
+		return{
+			page: "home"
+		}
+	},
+	changePage: function(page){
+		this.setState({
+			page: page
+		});
+	},
 	render: function(){
+		var accountmobilevisible = (this.state.page=="home") ? "" : " hidden-xs";
+
 		return(
 			<div className="wrapper">
 				<div className="container-fluid fill">
 					<div className="row fill">
-						<div className="col-sm-3 section">
+						<div className={"col-sm-3 section col-xs-12"+accountmobilevisible}>
 							<div className="row section">
-								<Accounts />
-								<Projects />
+								<Accounts changePage={this.changePage} />
+								<Projects changePage={this.changePage} />
 							</div>
 						</div>
-						<Notes />
-						<Tasks />
+						<Notes page={this.state.page} changePage={this.changePage} />
+						<Tasks page={this.state.page} changePage={this.changePage} />
 					</div>
 				</div>
-				<AccountDetails />
+				<AccountDetails page={this.state.page} changePage={this.changePage} />
 			</div>
 		)
 	}

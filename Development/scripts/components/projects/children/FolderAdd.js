@@ -19,7 +19,9 @@ var FolderAdd = React.createClass({
 			visible: true
 		});
 	},
-	onSubmit: function () {
+	onSubmit: function (e) {
+		e.preventDefault();
+
 		var n = this.state.name;
 
 		if (n.length > 1) this.props.addFolder({ name: n });
@@ -46,7 +48,7 @@ var FolderAdd = React.createClass({
 			} else {
 				return React.createElement(
 					"form",
-					{ className: "folder-input" },
+					{ className: "folder-input", onSubmit: self.onSubmit },
 					React.createElement(
 						"div",
 						{ className: "form-group" },

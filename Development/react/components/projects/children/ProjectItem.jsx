@@ -42,7 +42,9 @@ var ProjectItem = React.createClass({
 			name: e.target.value
 		});
 	},
-	changeName: function(){
+	changeName: function(e){
+		e.preventDefault();
+
 		this.setState({
 			edit: false	
 		})
@@ -90,7 +92,7 @@ var ProjectItem = React.createClass({
 					{createMoveFolders}
 					<a onClick={this.showMoveFolder}>Cancel</a>
 				</h6>
-				<form className={"edit-project "+editvisible}>
+				<form className={"edit-project "+editvisible} onSubmit={this.changeName}>
 					<div className="form-group">
 						<input type="text" className="form-control" id="foldername" placeholder="Project Name" value={this.state.name} onChange={this.onNameChange}></input>
 						<button type="button" className="btn btn-default" onClick={this.changeName}>

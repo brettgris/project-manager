@@ -52,16 +52,19 @@ var Projects = React.createClass({
 		data.account = this.state.account.id;
 		FolderActions.addFolder(data, this.state.account.id);
 	},
+	updateFolder: function (data) {
+		FolderActions.updateFolder(data);
+	},
 	render: function () {
 		var name = this.state.account['doc'] ? this.state.account.doc.name : "";
 
 		var createFolders = this.state.folders.map(function (item, key) {
-			return React.createElement(FolderItem, { data: item, key: item.id, id: key, folders: this.state.folders, projects: this.state.projects, current: this.state.current });
+			return React.createElement(FolderItem, { data: item, key: item.id, id: key, folders: this.state.folders, projects: this.state.projects, current: this.state.current, onUpdate: this.updateFolder, changePage: this.props.changePage });
 		}.bind(this));
 
 		return React.createElement(
 			'div',
-			{ className: 'col-sm-10 section', id: 'projects' },
+			{ className: 'col-sm-10 section col-xs-10', id: 'projects' },
 			React.createElement(
 				'div',
 				{ className: 'account-title' },

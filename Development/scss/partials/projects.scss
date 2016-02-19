@@ -53,6 +53,26 @@
 			}
 		}
 
+		.edit{
+			margin-bottom: 15px;
+
+			.form-group{
+				margin-bottom: 5px;
+
+				.form-control{
+					display: inline-block;
+					width: 80%;
+					background: $projects-input-bg;
+					border: $projects-input-border;
+					color: $projects-input-color;
+				}
+
+				.btn{
+					vertical-align: top;
+				}
+			}
+		}
+
 		.folder-input{
 			.form-group{
 				margin-bottom: 5px;
@@ -60,6 +80,9 @@
 				.form-control{
 					display: inline-block;
 					width: 80%;
+					background: $projects-input-bg;
+					border: $projects-input-border;
+					color: $projects-input-color;
 				}
 
 				.btn{
@@ -132,6 +155,9 @@
 				.form-control{
 					display: inline-block;
 					width: 80%;
+					background: $projects-input-bg;
+					border: $projects-input-border;
+					color: $projects-input-color;
 				}
 
 				.btn{
@@ -161,6 +187,9 @@
 				.form-control{
 					display: inline-block;
 					width: 80%;
+					background: $projects-input-bg;
+					border: $projects-input-border;
+					color: $projects-input-color;
 				}
 
 				.btn{

@@ -45,7 +45,9 @@ var Notes = React.createClass({
 	},
 	render: function () {
 		var createNotes = this.state.notes.map(function (item, key) {
-			return React.createElement(GeneralNoteItem, { data: item, key: "note" + key, onDelete: this.deleteNote, onUpdate: this.updateNote });
+			if (this.state.project != undefined) {
+				return React.createElement(GeneralNoteItem, { data: item, key: "note" + key, onDelete: this.deleteNote, onUpdate: this.updateNote });
+			}
 		}.bind(this));
 
 		return React.createElement(

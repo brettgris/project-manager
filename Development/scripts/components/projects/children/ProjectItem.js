@@ -44,7 +44,9 @@ var ProjectItem = React.createClass({
 			name: e.target.value
 		});
 	},
-	changeName: function () {
+	changeName: function (e) {
+		e.preventDefault();
+
 		this.setState({
 			edit: false
 		});
@@ -109,7 +111,7 @@ var ProjectItem = React.createClass({
 			),
 			React.createElement(
 				'form',
-				{ className: "edit-project " + editvisible },
+				{ className: "edit-project " + editvisible, onSubmit: this.changeName },
 				React.createElement(
 					'div',
 					{ className: 'form-group' },

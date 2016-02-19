@@ -21,6 +21,11 @@ var FolderStore = Reflux.createStore({
 			this.getFolders(accountid);
 		}.bind(this));
 	},
+	updateFolder: function(data){
+		HTTP.post('folders',data).then(function(res){
+			this.getFolders(data.account);
+		}.bind(this));
+	},
 	triggerUpdate: function(){
 		this.trigger('change', this.data);
 	}

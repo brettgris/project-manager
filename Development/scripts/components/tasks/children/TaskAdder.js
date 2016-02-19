@@ -13,7 +13,9 @@ var TaskAdder = React.createClass({
 			name: e.target.value
 		});
 	},
-	onSubmit: function () {
+	onSubmit: function (e) {
+		e.preventDefault();
+
 		if (this.state.name.length > 0) {
 			var data = {
 				name: this.state.name,
@@ -31,7 +33,7 @@ var TaskAdder = React.createClass({
 	render: function () {
 		return React.createElement(
 			"form",
-			{ className: "task-input" },
+			{ className: "task-input", onSubmit: this.onSubmit },
 			React.createElement(
 				"div",
 				{ className: "form-group" },

@@ -72,7 +72,9 @@ var AccountDetails = React.createClass({
 			loader: false
 		});
 	},
-	validate: function () {
+	validate: function (e) {
+		e.preventDefault();
+
 		valid = true;
 		if (this.state.name.length < 1) {
 			valid = false;
@@ -154,7 +156,7 @@ var AccountDetails = React.createClass({
 			),
 			React.createElement(
 				'form',
-				null,
+				{ onSubmit: this.validate },
 				React.createElement(
 					'div',
 					{ className: nameclass },

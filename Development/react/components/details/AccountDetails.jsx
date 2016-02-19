@@ -72,7 +72,9 @@ var AccountDetails = React.createClass({
 			loader: false
 		});
 	},
-	validate: function(){
+	validate: function(e){
+		e.preventDefault();
+		
 		valid = true;
 		if (this.state.name.length<1) {
 			valid = false;
@@ -144,7 +146,7 @@ var AccountDetails = React.createClass({
 		return(
 			<div id="details" className={detailsclass}>
 				<h3>{this.state.show} ACCOUNT</h3>
-				<form>
+				<form onSubmit={this.validate}>
 					<div className={nameclass}>
 						<label htmlFor="accountname">Account Name</label>
 						<input id="accountname" className="form-control" type="text" onChange={this.nameChange} value={this.state.name}></input>

@@ -50,17 +50,20 @@ var Projects = React.createClass({
 		data.account = this.state.account.id;
 		FolderActions.addFolder(data,this.state.account.id);
 	},
+	updateFolder: function(data){
+		FolderActions.updateFolder(data);
+	},
 	render: function(){
 		var name = (this.state.account['doc']) ? this.state.account.doc.name : "";
 
 		var createFolders = this.state.folders.map( function(item,key) {
 			return (
-            	<FolderItem data={item} key={item.id} id={key} folders={this.state.folders} projects={this.state.projects} current={this.state.current} />
+            	<FolderItem data={item} key={item.id} id={key} folders={this.state.folders} projects={this.state.projects} current={this.state.current} onUpdate={this.updateFolder} changePage={this.props.changePage}/>
             );
         }.bind(this));
 
 		return (
-			<div className="col-sm-10 section" id="projects">
+			<div className="col-sm-10 section col-xs-10" id="projects">
 				<div className="account-title">
 					<h3> {name}
 						<a onClick={this.editAccount} className="glyphicon glyphicon-cog"></a>

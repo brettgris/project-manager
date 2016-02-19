@@ -196,11 +196,26 @@ html, body {
           display: inline-block; }
       #projects .folders .folder-title:hover a, #projects .folders .folder-add:hover a {
         display: inline-block; }
+    #projects .folders .edit {
+      margin-bottom: 15px; }
+      #projects .folders .edit .form-group {
+        margin-bottom: 5px; }
+        #projects .folders .edit .form-group .form-control {
+          display: inline-block;
+          width: 80%;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          color: #ccc; }
+        #projects .folders .edit .form-group .btn {
+          vertical-align: top; }
     #projects .folders .folder-input .form-group {
       margin-bottom: 5px; }
       #projects .folders .folder-input .form-group .form-control {
         display: inline-block;
-        width: 80%; }
+        width: 80%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #ccc; }
       #projects .folders .folder-input .form-group .btn {
         vertical-align: top; }
   #projects .project-item {
@@ -238,7 +253,10 @@ html, body {
       margin-bottom: 5px; }
       #projects .project-item .edit-project .form-group .form-control {
         display: inline-block;
-        width: 80%; }
+        width: 80%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #ccc; }
       #projects .project-item .edit-project .form-group .btn {
         vertical-align: top; }
   #projects .project-add .projectaddbtn {
@@ -251,7 +269,10 @@ html, body {
     margin-bottom: 5px; }
     #projects .project-add .project-input .form-group .form-control {
       display: inline-block;
-      width: 80%; }
+      width: 80%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ccc; }
     #projects .project-add .project-input .form-group .btn {
       vertical-align: top; }
 
@@ -304,20 +325,25 @@ html, body {
             float: right; }
         #tasks .tasks .list .items .item:hover .glyphicon {
           display: inline-block; }
-      #tasks .tasks .list .items .task-input {
-        height: 30px;
+      #tasks .tasks .list .items .task-input, #tasks .tasks .list .items .edit {
         width: 92%;
         margin: auto; }
-        #tasks .tasks .list .items .task-input .form-group {
-          display: none; }
-          #tasks .tasks .list .items .task-input .form-group .form-control {
+        #tasks .tasks .list .items .task-input .form-group, #tasks .tasks .list .items .edit .form-group {
+          margin-bottom: 5px; }
+          #tasks .tasks .list .items .task-input .form-group .form-control, #tasks .tasks .list .items .edit .form-group .form-control {
             display: inline-block;
             width: 80%;
             background: #ddd; }
-          #tasks .tasks .list .items .task-input .form-group .btn {
+          #tasks .tasks .list .items .task-input .form-group .btn, #tasks .tasks .list .items .edit .form-group .btn {
             vertical-align: top; }
-        #tasks .tasks .list .items .task-input:hover .form-group {
+        #tasks .tasks .list .items .task-input:hover .form-group, #tasks .tasks .list .items .edit:hover .form-group {
           display: block; }
+      #tasks .tasks .list .items .edit {
+        margin-bottom: 15px; }
+      #tasks .tasks .list .items .task-input {
+        height: 30px; }
+        #tasks .tasks .list .items .task-input .form-group {
+          display: none; }
 
 #notes {
   background: #fff;
@@ -325,7 +351,7 @@ html, body {
   #notes .header h4 {
     font-size: 18px; }
   #notes .note {
-    margin-bottom: 20px; }
+    margin-bottom: 10px; }
     #notes .note .to {
       padding-right: 20%;
       margin-left: 2%; }
@@ -353,15 +379,11 @@ html, body {
       text-align: center;
       font-size: 10px;
       color: #ccc;
-      margin-top: 10px;
-      position: relative; }
+      margin-top: 5px;
+      position: relative;
+      height: 12px; }
       #notes .note .details .icons {
-        position: absolute;
-        width: 100%;
-        top: 0;
-        right: 0;
-        display: none;
-        text-align: right; }
+        display: none; }
         #notes .note .details .icons .glyphicon {
           margin: 0 10px; }
     #notes .note:hover .details .icons {

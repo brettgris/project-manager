@@ -12,7 +12,19 @@ var Notes = require('./components/notes/Notes');
 var App = React.createClass({
 	displayName: 'App',
 
+	getInitialState: function () {
+		return {
+			page: "home"
+		};
+	},
+	changePage: function (page) {
+		this.setState({
+			page: page
+		});
+	},
 	render: function () {
+		var accountmobilevisible = this.state.page == "home" ? "" : " hidden-xs";
+
 		return React.createElement(
 			'div',
 			{ className: 'wrapper' },
@@ -24,19 +36,19 @@ var App = React.createClass({
 					{ className: 'row fill' },
 					React.createElement(
 						'div',
-						{ className: 'col-sm-3 section' },
+						{ className: "col-sm-3 section col-xs-12" + accountmobilevisible },
 						React.createElement(
 							'div',
 							{ className: 'row section' },
-							React.createElement(Accounts, null),
-							React.createElement(Projects, null)
+							React.createElement(Accounts, { changePage: this.changePage }),
+							React.createElement(Projects, { changePage: this.changePage })
 						)
 					),
-					React.createElement(Notes, null),
-					React.createElement(Tasks, null)
+					React.createElement(Notes, { page: this.state.page, changePage: this.changePage }),
+					React.createElement(Tasks, { page: this.state.page, changePage: this.changePage })
 				)
 			),
-			React.createElement(AccountDetails, null)
+			React.createElement(AccountDetails, { page: this.state.page, changePage: this.changePage })
 		);
 	}
 });
