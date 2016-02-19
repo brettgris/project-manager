@@ -1,4 +1,5 @@
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css";
+@import "https://cdn.quilljs.com/0.20.1/quill.snow.css";
 /************************  VARIABLES  ************************/
 /**************** COLORS **********************/
 /**************** FONT *********************/
@@ -21,6 +22,9 @@
 /***************** NOTES **********************/
 h4 {
   font-size: 16px; }
+
+.center {
+  text-align: center; }
 
 /************************  GLOBALS  ************************/
 /**************** GLOBALS *********************/
@@ -63,7 +67,7 @@ a {
   margin-right: 5px; }
 
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: #eee;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px; }
@@ -167,12 +171,12 @@ html, body {
     color: #fff;
     text-transform: uppercase;
     padding: 0 10px; }
-    #projects .account-title a {
+    #projects .account-title .glyphicon {
       color: #ccc;
       font-size: 18px;
       display: none;
       margin-left: 5px; }
-    #projects .account-title:hover a {
+    #projects .account-title:hover .glyphicon {
       display: inline-block; }
   #projects .folders {
     padding: 0 10px; }
@@ -200,18 +204,26 @@ html, body {
       #projects .folders .folder-input .form-group .btn {
         vertical-align: top; }
   #projects .project-item {
-    color: #888; }
-    #projects .project-item .project-title.hide {
-      display: none; }
-    #projects .project-item .project-title a {
-      margin-left: 5px;
-      color: #888;
-      display: none;
-      font-size: 10px; }
-      #projects .project-item .project-title a.edit {
-        float: right; }
-    #projects .project-item .project-title:hover a {
-      display: inline-block; }
+    color: #888;
+    cursor: pointer; }
+    #projects .project-item .project-title {
+      margin: 0px;
+      padding: 5px; }
+      #projects .project-item .project-title.selected {
+        background: #405366; }
+      #projects .project-item .project-title.hide {
+        display: none; }
+      #projects .project-item .project-title a {
+        color: #888; }
+      #projects .project-item .project-title .glyphicon {
+        margin-left: 5px;
+        color: #888;
+        display: none;
+        font-size: 10px; }
+        #projects .project-item .project-title .glyphicon.edit {
+          float: right; }
+      #projects .project-item .project-title:hover .glyphicon {
+        display: inline-block; }
     #projects .project-item .move-folder {
       display: block;
       color: #fff; }
@@ -244,7 +256,153 @@ html, body {
       vertical-align: top; }
 
 #tasks {
-  background: #ccc; }
+  background: #ccc;
+  overflow: auto; }
+  #tasks .tasks .list {
+    margin-bottom: 30px; }
+    #tasks .tasks .list h4 {
+      text-transform: uppercase;
+      padding-bottom: 3px; }
+      #tasks .tasks .list h4.visible {
+        border-bottom: 1px solid #666; }
+      #tasks .tasks .list h4 .glyphicon {
+        float: right; }
+    #tasks .tasks .list .items {
+      display: none; }
+      #tasks .tasks .list .items.visible {
+        display: block; }
+      #tasks .tasks .list .items .item {
+        position: relative;
+        width: 90%;
+        margin: 0 auto 10px auto;
+        font-size: 14px;
+        line-height: 26px;
+        padding-left: 30px;
+        color: #333; }
+        #tasks .tasks .list .items .item.complete {
+          color: #888;
+          text-decoration: line-through; }
+        #tasks .tasks .list .items .item .checked, #tasks .tasks .list .items .item .unchecked {
+          display: inline-block;
+          width: 20px;
+          height: 26px;
+          position: absolute;
+          top: 0;
+          left: 0; }
+        #tasks .tasks .list .items .item .unchecked {
+          background: url(../img/unchecked.png) center center no-repeat;
+          background-size: contain; }
+        #tasks .tasks .list .items .item .checked {
+          background: url(../img/checked.png) center center no-repeat;
+          background-size: contain; }
+        #tasks .tasks .list .items .item .glyphicon {
+          line-height: 26px;
+          font-size: 10px;
+          display: none;
+          margin-left: 10px; }
+          #tasks .tasks .list .items .item .glyphicon-remove {
+            float: right; }
+        #tasks .tasks .list .items .item:hover .glyphicon {
+          display: inline-block; }
+      #tasks .tasks .list .items .task-input {
+        height: 30px;
+        width: 92%;
+        margin: auto; }
+        #tasks .tasks .list .items .task-input .form-group {
+          display: none; }
+          #tasks .tasks .list .items .task-input .form-group .form-control {
+            display: inline-block;
+            width: 80%;
+            background: #ddd; }
+          #tasks .tasks .list .items .task-input .form-group .btn {
+            vertical-align: top; }
+        #tasks .tasks .list .items .task-input:hover .form-group {
+          display: block; }
 
 #notes {
-  background: #fff; }
+  background: #fff;
+  overflow-y: auto; }
+  #notes .header h4 {
+    font-size: 18px; }
+  #notes .note {
+    margin-bottom: 20px; }
+    #notes .note .to {
+      padding-right: 20%;
+      margin-left: 2%; }
+      #notes .note .to div:after, #notes .note .to div:before {
+        right: 100% !important; }
+      #notes .note .to div:after {
+        border-right-color: #ddd !important; }
+      #notes .note .to div:before {
+        border-right-color: #eee !important; }
+    #notes .note .from {
+      padding-left: 20%;
+      margin-right: 2%; }
+      #notes .note .from div:after, #notes .note .from div:before {
+        left: 100% !important; }
+      #notes .note .from div:after {
+        border-left-color: #ddd !important; }
+      #notes .note .from div:before {
+        border-left-color: #eee !important; }
+    #notes .note .status {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      font-style: italic; }
+    #notes .note .details {
+      text-align: center;
+      font-size: 10px;
+      color: #ccc;
+      margin-top: 10px;
+      position: relative; }
+      #notes .note .details .icons {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        right: 0;
+        display: none;
+        text-align: right; }
+        #notes .note .details .icons .glyphicon {
+          margin: 0 10px; }
+    #notes .note:hover .details .icons {
+      display: block; }
+  #notes .add .ql-container, #notes .note .ql-container {
+    border: 1px solid #ccc; }
+  #notes .add .add-form, #notes .note .add-form {
+    margin-top: 20px; }
+    #notes .add .add-form select.type, #notes .note .add-form select.type {
+      width: 25%; }
+    #notes .add .add-form .submitbtn, #notes .note .add-form .submitbtn {
+      float: right; }
+    #notes .add .add-form .cancelbtn, #notes .note .add-form .cancelbtn {
+      float: right;
+      cursor: pointer;
+      margin-right: 10px; }
+  #notes .add {
+    margin-top: 30px;
+    margin-bottom: 100px; }
+
+.chat, #notes .note .to div, #notes .note .from div {
+  position: relative;
+  background: #ddd;
+  border: 1px solid #eee;
+  padding: 10px 20px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+  .chat:after, #notes .note .to div:after, #notes .note .from div:after, .chat:before, #notes .note .to div:before, #notes .note .from div:before {
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none; }
+  .chat:after, #notes .note .to div:after, #notes .note .from div:after {
+    border-color: transparent;
+    border-width: 10px;
+    margin-top: -10px; }
+  .chat:before, #notes .note .to div:before, #notes .note .from div:before {
+    border-color: transparent;
+    border-width: 11px;
+    margin-top: -11px; }

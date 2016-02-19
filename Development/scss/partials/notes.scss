@@ -1,3 +1,160 @@
 #notes{
 	background: $notes-bg;
+	overflow-y: auto;
+
+	.header{
+		h4{
+			font-size: 18px;
+		}
+	}
+
+	.note{
+		margin-bottom: 20px; 
+
+		.general{
+			
+		}
+
+		.to{
+			padding-right: 20%;
+			margin-left: 2%;
+
+			div{
+				@extend .chat;
+
+				&:after, &:before{
+					right: 100% !important;
+				}	
+
+				&:after{
+					border-right-color: $chat-color !important;
+				}
+
+				&:before{
+					border-right-color: $chat-border-color !important;
+				}
+			}
+		}
+
+		.from{
+			padding-left: 20%;
+			margin-right: 2%;
+
+
+			div{
+				@extend .chat;
+
+				&:after, &:before{
+					left: 100% !important;
+				}	
+
+				&:after{
+					border-left-color: $chat-color !important;
+				}
+
+				&:before{
+					border-left-color: $chat-border-color !important;
+				}
+			}
+		}
+
+		 .status{
+			text-align: center;
+			color: $status-color;
+			font-size: 14px;
+			font-style: italic;
+		}
+
+		.details{
+			text-align: center;
+			font-size: 10px;
+			color: $details-color;
+			margin-top: 10px;
+			position: relative;
+
+			.icons{
+				position: absolute;
+				width: 100%;
+				top: 0;
+				right: 0;
+				display: none;
+				text-align: right;
+
+				.glyphicon{
+					margin: 0 10px;
+				}
+			}
+
+			
+			
+		}
+
+		&:hover{
+			.details{
+				.icons{
+					display: block;
+				}
+			}
+		}
+	}
+	
+	.add, .note{
+		.ql-container{
+			border: $notes-textarea-border
+		}
+
+		.add-form{
+			margin-top: 20px;
+
+			select.type{
+				width: 25%;
+			}
+
+			.submitbtn{
+				float: right;
+			}
+
+			.cancelbtn{
+				float: right;
+				cursor: pointer;
+				margin-right: 10px;
+			}
+		}
+	}
+
+	.add{
+		margin-top: 30px;
+		margin-bottom: 100px;
+	}
+	
+}
+
+.chat{
+	position: relative;
+	background: $chat-color;
+	border: $chat-border;
+	padding: 10px 20px;
+	@include border-radius(10px);
+
+	&:after, &:before{
+		top: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	&:after{
+		border-color: rgba(0, 0, 0, 0);
+		border-width: 10px;
+		margin-top: -10px;
+	}
+
+	&:before{
+		border-color: rgba(0, 0, 0, 0);
+		border-width: 11px;
+		margin-top: -11px;
+	}
 }

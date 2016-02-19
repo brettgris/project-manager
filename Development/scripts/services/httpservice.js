@@ -17,10 +17,18 @@ var service = {
 			key: val,
 			include_docs: true
 		}).then(function (response) {
+			var arr = response.rows;
+			arr = arr.sort(function (a, b) {
+				return a.doc.created - b.doc.created;
+			});
+			response.rows = arr;
 			return response;
 		});
 	},
 	post: function (url, data) {
+		var d = new Date();
+		data.created = d.getTime();
+
 		return this.dbs[url].post(data).then(function (response) {
 			return response;
 		});

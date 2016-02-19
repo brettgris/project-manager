@@ -5,6 +5,7 @@ $blue3: #405366;
 $light-grey: #ccc;
 $mdlgt-grey: #888;
 $med-grey: #666;
+$dark-grey: #333;
 $white: #fff;
 $black: #000;
 
@@ -25,9 +26,16 @@ $folder-title-color: $light-grey;
 $project-item-color: $mdlgt-grey;
 $project-item-info-color: $white;
 
+$project-selected: $blue3;
+
 
 /***************** TASKS **********************/
 $tasks-bg: $light-grey;
+$tasks-active: $dark-grey;
+$task-completed: $mdlgt-grey;
 
 /***************** NOTES **********************/
 $notes-bg: $white;
+$status-color: $med-grey;
+$details-color: $light-grey;
+$chat-color: #ddd;

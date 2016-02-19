@@ -22,10 +22,6 @@ var ProjectAdd = React.createClass({
 		});
 	},
 	addProject: function () {
-		this.setState({
-			edit: false
-		});
-
 		if (this.state.name.length > 1) {
 			var data = {
 				name: this.state.name,
@@ -35,6 +31,11 @@ var ProjectAdd = React.createClass({
 
 			ProjectActions.addProject(data);
 		}
+
+		this.setState({
+			edit: false,
+			name: ""
+		});
 	},
 	render: function () {
 		var editbtnvisible = this.state.edit ? "hide" : "";

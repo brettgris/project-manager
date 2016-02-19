@@ -1,3 +1,111 @@
 #tasks{
 	background: $tasks-bg;
+	overflow: auto;
+
+	.tasks{
+		.list{
+			margin-bottom: 30px;
+
+			h4{
+				text-transform: uppercase;
+				padding-bottom: 3px;
+				
+				&.visible{
+					border-bottom: $task-header-border;
+				}
+
+				.glyphicon{
+					float: right;
+				}
+
+			}
+
+			.items{
+				display:none;
+
+				&.visible{
+					display: block;
+				}
+
+				.item{
+					position: relative;
+					width: 90%;
+					margin: 0 auto 10px auto;
+					font-size: 14px;
+					line-height: 26px;
+					padding-left: 30px;
+					color: $tasks-active;
+
+					&.complete{
+						color: $task-completed;
+						text-decoration: line-through;
+					}
+
+					.checked, .unchecked{
+						display: inline-block;
+						width: 20px;
+						height: 26px;
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+
+					.unchecked{
+						background: url(#{$imgPath}unchecked.png) center center no-repeat;
+						background-size: contain;
+					}
+
+					.checked{
+						background: url(#{$imgPath}checked.png) center center no-repeat;
+						background-size: contain;
+					}
+
+					.glyphicon{
+						line-height: 26px;
+						font-size: 10px;
+						display: none; 
+						margin-left: 10px;
+
+						&-remove{
+							float: right;
+						}
+					}
+
+					&:hover{
+						.glyphicon{
+							display: inline-block;
+						}
+					}
+				}
+
+				.task-input{
+					height: 30px;
+					width: 92%;
+					margin: auto;
+
+					
+
+					.form-group{
+						display: none;
+
+						.form-control{
+							display: inline-block;
+							width: 80%;
+							background: #ddd;
+						}
+
+						.btn{
+							vertical-align: top;
+						}
+					}
+
+					&:hover {
+						.form-group{
+							display: block;
+						}	
+					}
+				}
+			}
+		}
+	}
 }

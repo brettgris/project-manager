@@ -4,8 +4,8 @@ var AccountActions = require('./AccountActions');
 var _ = require('underscore');
 
 var obj = {
-	a: "togelytorytheryieleelyin",
-	b: "ee2d20a3da52c00f45e5ff9049e0f96821437e9c"
+	a: "tordsomerstereacedidiaga",
+	b: "8adb2bd2ff41fe29302af4a3cc9aa3ead0802e0e"
 }
 
 var AccountsStore = Reflux.createStore({

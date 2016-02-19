@@ -8,7 +8,7 @@
 		text-transform: uppercase;
 		padding: 0 10px;
 
-		a{
+		.glyphicon{
 			color: $account-action-color;
 			font-size: 18px;
 			display: none;
@@ -16,7 +16,7 @@
 		}
 
 		&:hover{
-			a{
+			.glyphicon{
 				display: inline-block;
 			}
 		}
@@ -71,13 +71,25 @@
 
 	.project-item{
 		color: $project-item-color;
+		cursor: pointer;
 		
 		.project-title{
+			margin: 0px;
+			padding: 5px;
+
+			&.selected{
+				background: $project-selected;
+			}
+
 			&.hide{
 				display: none;
 			}
 
 			a{
+				color: $project-item-color;
+			}
+
+			.glyphicon{
 				margin-left: 5px;
 				color: $project-item-color;
 				display: none;
@@ -89,7 +101,7 @@
 			}
 
 			&:hover{
-				a{
+				.glyphicon{
 					display: inline-block;
 				}
 			}

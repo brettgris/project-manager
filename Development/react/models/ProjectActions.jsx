@@ -3,7 +3,8 @@ var Reflux = require('reflux');
 var ProjectActions = Reflux.createActions([
 	'getProjects',
 	'addProject',
-	'updateProject'
+	'updateProject',
+	'changeCurrent'
 ]);
 
 module.exports = ProjectActions;

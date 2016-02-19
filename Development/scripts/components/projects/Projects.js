@@ -19,7 +19,8 @@ var Projects = React.createClass({
 		return {
 			account: {},
 			folders: [],
-			projects: []
+			projects: [],
+			current: undefined
 		};
 	},
 	changeAccount: function (e, data) {
@@ -40,7 +41,8 @@ var Projects = React.createClass({
 	},
 	changeProjects: function (e, data) {
 		this.setState({
-			projects: data.projects
+			projects: data.projects,
+			current: data.current
 		});
 	},
 	editAccount: function () {
@@ -54,7 +56,7 @@ var Projects = React.createClass({
 		var name = this.state.account['doc'] ? this.state.account.doc.name : "";
 
 		var createFolders = this.state.folders.map(function (item, key) {
-			return React.createElement(FolderItem, { data: item, key: item.id, id: key, folders: this.state.folders, projects: this.state.projects });
+			return React.createElement(FolderItem, { data: item, key: item.id, id: key, folders: this.state.folders, projects: this.state.projects, current: this.state.current });
 		}.bind(this));
 
 		return React.createElement(

@@ -1,6 +1,8 @@
 var React = require('react');
 var ProjectActions = require('../../../models/ProjectActions');
 var ProjectStore = require('../../../models/ProjectStore');
+var NotesActions = require('../../../models/NotesActions');
+var NotesStore = require('../../../models/NotesStore');
 
 var ProjectItem = React.createClass({
 	getInitialState: function(){
@@ -21,6 +23,14 @@ var ProjectItem = React.createClass({
 		});
 	},
 	moveFolder: function(item){
+		var data = {
+			project: this.props.data.id,
+			type: "status",
+			copy: "<div>Moved to: "+item.doc.name+"</div>"
+		}
+
+		NotesActions.addNote(data);
+
 		var data = this.props.data.doc;
 		data.rev = this.props.data["_rev"];
 		data.folder = item.id;
@@ -45,10 +55,15 @@ var ProjectItem = React.createClass({
 			ProjectActions.updateProject(data);
 		}
 	},
+	selectProject: function(){
+		ProjectActions.changeCurrent(this.props.data);
+	},
 	render: function(){
-		var titlevisible = (this.state.edit) ? "hide" : "";
-		var movevisible = (this.state.move) ? "" : "hide";
-		var editvisible = (this.state.edit) ? "" : "hide";
+		var titlevisible = (this.state.edit) ? " hide" : "";
+		var movevisible = (this.state.move) ? "" : " hide";
+		var editvisible = (this.state.edit) ? "" : " hide";
+
+		var titleselected = (this.props.current!=undefined&&this.props.data!=undefined&&this.props.current["id"]==this.props.data["id"]) ? " selected" : "";
   
 		var createMoveFolders = this.props.folders.map( function(item,key){
 			if (this.props.folder.id!=item.id ) {
@@ -65,8 +80,8 @@ var ProjectItem = React.createClass({
 
 		return (
 			<div className="project-item">
-				<h6 className={"project-title "+titlevisible}>
-					{this.props.data.doc.name}
+				<h6 className={"project-title"+titleselected+titlevisible}>
+					<a onClick={this.selectProject}>{this.props.data.doc.name}</a>
 					<a className="glyphicon glyphicon-cog" onClick={this.showEdit}></a>
 					<a className="edit glyphicon glyphicon-option-horizontal" onClick={this.showMoveFolder}></a>
 				</h6>
@@ -79,7 +94,7 @@ var ProjectItem = React.createClass({
 					<div className="form-group">
 						<input type="text" className="form-control" id="foldername" placeholder="Project Name" value={this.state.name} onChange={this.onNameChange}></input>
 						<button type="button" className="btn btn-default" onClick={this.changeName}>
-							Submit
+							<span className="glyphicon glyphicon-plus"></span>
 						</button>
 					</div>
 					<a onClick={this.showEdit}>Cancel</a>

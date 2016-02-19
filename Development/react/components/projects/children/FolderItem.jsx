@@ -28,8 +28,9 @@ var FolderItem = React.createClass({
 
 		var createProjects = this.props.projects.map( function(item,key){
 			if (item.doc.folder==this.props.data.id){
+
 				return(	
-					<ProjectItem data={item} key={"folder"+key} folder={this.props.data} folders={this.props.folders} />
+					<ProjectItem data={item} key={"folder"+key} folder={this.props.data} folders={this.props.folders} current={this.props.current} />
 				);
 			}
 		}.bind(this));

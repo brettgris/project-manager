@@ -3,8 +3,8 @@ var Reflux = require('reflux');
 var ProjectActions = require('./ProjectActions');
 
 var obj = {
-	a: "poseckozonsideevelfighth",
-	b: "3bb0147c743778ddeb12fc813884ac432b0d4e9b"
+	a: "alselightlesepallesteref",
+	b: "2a058cc2a62605d626590ac5722abb4b7518c983"
 }
 
 var ProjectStore = Reflux.createStore({
@@ -13,6 +13,7 @@ var ProjectStore = Reflux.createStore({
 	getProjects: function(accountid){
 		HTTP.get('projects', obj, accountid).then(function(data){
 			this.data.projects = data.rows;
+			this.data.current = undefined;
 			this.triggerUpdate();
 		}.bind(this));
 	},
@@ -27,6 +28,10 @@ var ProjectStore = Reflux.createStore({
 			this.getProjects(data.account);
 			this.triggerUpdate();
 		}.bind(this));
+	},
+	changeCurrent: function(data){
+		this.data.current = data;
+		this.triggerUpdate();
 	},
 	triggerUpdate: function(){
 		this.trigger('change', this.data);

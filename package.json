@@ -25,10 +25,12 @@
     "dropzone": "^4.2.0",
     "history": "^1.17.0",
     "jquery": "^2.2.0",
+    "moment": "^2.11.2",
     "pouchdb": "^5.2.1",
     "react": "^0.14.7",
     "react-addons-css-transition-group": "^0.14.7",
     "react-dom": "^0.14.7",
+    "react-quill": "^0.4.1",
     "reflux": "^0.3.0",
     "underscore": "^1.8.3",
     "whatwg-fetch": "^0.11.0"
