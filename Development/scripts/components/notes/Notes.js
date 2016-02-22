@@ -44,6 +44,8 @@ var Notes = React.createClass({
 		NotesActions.updateNote(data);
 	},
 	render: function () {
+		var mobile = this.props.page == "notes" ? "" : " hidden-xs";
+
 		var createNotes = this.state.notes.map(function (item, key) {
 			if (this.state.project != undefined) {
 				return React.createElement(GeneralNoteItem, { data: item, key: "note" + key, onDelete: this.deleteNote, onUpdate: this.updateNote });
@@ -52,7 +54,7 @@ var Notes = React.createClass({
 
 		return React.createElement(
 			'div',
-			{ className: 'col-sm-6 section', id: 'notes' },
+			{ className: "col-sm-6 section" + mobile, id: 'notes' },
 			React.createElement(NotesHeader, { project: this.state.project }),
 			createNotes,
 			React.createElement(NoteAdder, { project: this.state.project, addNote: this.addNote })

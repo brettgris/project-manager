@@ -7,6 +7,7 @@
 /**************** PROJECTS ********************/
 /***************** TASKS **********************/
 /***************** NOTES **********************/
+/***************** MENU **********************/
 /**************** GLOBALS *********************/
 /**************** MODULE *********************/
 /**************** ACCOUNTS ********************/
@@ -14,12 +15,14 @@
 /**************** PROJECTS ********************/
 /***************** TASKS **********************/
 /***************** NOTES **********************/
+/***************** MENU **********************/
 /**************** GLOBALS *********************/
 /**************** MODULE *********************/
 /**************** ACCOUNTS ********************/
 /**************** PROJECTS ********************/
 /***************** TASKS **********************/
 /***************** NOTES **********************/
+/***************** MENU **********************/
 h4 {
   font-size: 16px; }
 
@@ -61,6 +64,15 @@ a {
   border-radius: 20px; }
   .module.hidden {
     display: none; }
+
+.content {
+  height: 100%;
+  width: 100%;
+  position: absolute; }
+  @media (max-width: 768px) {
+    .content {
+      height: 92%;
+      min-height: 92%; } }
 
 ::-webkit-scrollbar {
   width: 5px;
@@ -428,3 +440,36 @@ html, body {
     border-color: transparent;
     border-width: 11px;
     margin-top: -11px; }
+
+#menu {
+  position: absolute;
+  height: 8%;
+  bottom: 0;
+  background: white;
+  width: 100%;
+  left: 0;
+  border-top: 1px solid #ccc;
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); }
+  #menu .container-fluid {
+    height: 100%; }
+    #menu .container-fluid .row {
+      height: 100%; }
+      #menu .container-fluid .row .block {
+        height: 100%;
+        text-align: center;
+        border-right: 1px solid #ccc; }
+        #menu .container-fluid .row .block a {
+          height: 20px;
+          color: #ccc;
+          font-size: 20px;
+          line-height: 100%;
+          width: 100%;
+          top: 50%;
+          position: relative;
+          display: block;
+          -moz-transform: translateY(-50%) scale(1);
+          -ms-transform: translateY(-50%) scale(1);
+          -webkit-transform: translateY(-50%) scale(1);
+          transform: translateY(-50%) scale(1); }

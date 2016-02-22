@@ -2,12 +2,14 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 global.jQuery = require('jquery');
 var bootstrap = require('bootstrap');
+var fastclick = require('react-fastclick');
 
 var Accounts = require('./components/accounts/Accounts');
 var AccountDetails = require('./components/details/AccountDetails');
 var Projects = require('./components/projects/Projects');
 var Tasks = require('./components/tasks/Tasks');
 var Notes = require('./components/notes/Notes');
+var MobileMenu = require('./components/menu/MobileMenu');
 
 var App = React.createClass({
 	displayName: 'App',
@@ -30,7 +32,7 @@ var App = React.createClass({
 			{ className: 'wrapper' },
 			React.createElement(
 				'div',
-				{ className: 'container-fluid fill' },
+				{ className: 'container-fluid content fill' },
 				React.createElement(
 					'div',
 					{ className: 'row fill' },
@@ -48,7 +50,8 @@ var App = React.createClass({
 					React.createElement(Tasks, { page: this.state.page, changePage: this.changePage })
 				)
 			),
-			React.createElement(AccountDetails, { page: this.state.page, changePage: this.changePage })
+			React.createElement(AccountDetails, { page: this.state.page, changePage: this.changePage }),
+			React.createElement(MobileMenu, { page: this.state.page, changePage: this.changePage })
 		);
 	}
 });

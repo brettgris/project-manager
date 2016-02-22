@@ -42,6 +42,8 @@ var Notes = React.createClass({
 		NotesActions.updateNote(data);
 	},
 	render: function(){
+		var mobile = (this.props.page=="notes") ? "" : " hidden-xs";
+
 		var createNotes = this.state.notes.map( function(item, key){
 			if (this.state.project!=undefined) {
 				return(
@@ -51,7 +53,7 @@ var Notes = React.createClass({
 		}.bind(this));
 
 		return (
-			<div className="col-sm-6 section" id="notes">
+			<div className={"col-sm-6 section"+mobile} id="notes">
 				<NotesHeader project={this.state.project} />
 				{createNotes}
 				<NoteAdder project={this.state.project} addNote={this.addNote} />

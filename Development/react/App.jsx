@@ -8,6 +8,7 @@ var AccountDetails = require('./components/details/AccountDetails');
 var Projects = require('./components/projects/Projects');
 var Tasks = require('./components/tasks/Tasks');
 var Notes = require('./components/notes/Notes');
+var MobileMenu = require('./components/menu/MobileMenu');
 
 var App = React.createClass({
 	getInitialState: function(){
@@ -25,7 +26,7 @@ var App = React.createClass({
 
 		return(
 			<div className="wrapper">
-				<div className="container-fluid fill">
+				<div className="container-fluid content fill">
 					<div className="row fill">
 						<div className={"col-sm-3 section col-xs-12"+accountmobilevisible}>
 							<div className="row section">
@@ -38,6 +39,7 @@ var App = React.createClass({
 					</div>
 				</div>
 				<AccountDetails page={this.state.page} changePage={this.changePage} />
+				<MobileMenu page={this.state.page} changePage={this.changePage} />
 			</div>
 		)
 	}

@@ -8,6 +8,7 @@ a{
 	min-height: 100%;
 	position: absolute;
 	width: 100%;
+
 }
 
 .section{
@@ -33,6 +34,17 @@ a{
 
 	&.hidden{
 		display:none;
+	}
+}
+
+.content{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+
+	@media (max-width:768px){
+		height: 100%-$menu-height;
+		min-height: 100%-$menu-height;
 	}
 }
 

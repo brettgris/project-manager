@@ -1,0 +1,40 @@
+#menu{
+	position: absolute;
+	height: $menu-height;
+	bottom: 0;
+	background: white;
+	width: 100%;
+	left:0;
+
+	border-top: $menu-border;
+
+	@include box-shadow(0 0 20px rgba(0,0,0,.5));
+
+	.container-fluid{
+		height: 100%;
+
+		.row{
+			height: 100%;
+
+			.block{
+				height: 100%;
+				text-align: center;
+				border-right: $menu-border;
+
+				a{
+					height: $menu-item;
+					color: $menu-color;
+					font-size: $menu-item;
+					line-height: 100%;
+					width: 100%;
+					top: 50%;
+					position: relative;
+					display: block;
+
+					@include transform(translateY(-50%) scale(1));
+				}
+			}
+		}
+	}
+	
+}

@@ -42,10 +42,11 @@ var Tasks = React.createClass({
 		TasksActions.deleteTask(data);
 	},
 	render: function () {
+		var mobile = this.props.page == "tasks" ? "" : " hidden-xs";
 		var visible = this.state.project != undefined ? "" : " hide";
 		return React.createElement(
 			'div',
-			{ className: 'col-sm-3 section', id: 'tasks' },
+			{ className: "col-sm-3 section" + mobile, id: 'tasks' },
 			React.createElement(
 				'div',
 				{ className: "tasks" + visible },

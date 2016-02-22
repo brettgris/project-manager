@@ -40,9 +40,10 @@ var Tasks = React.createClass({
 		TasksActions.deleteTask(data);
 	},
 	render: function(){
+		var mobile = (this.props.page=="tasks") ? "" : " hidden-xs";
 		var visible = (this.state.project!=undefined) ? "" : " hide";
 		return (
-			<div className="col-sm-3 section" id="tasks">
+			<div className={"col-sm-3 section"+mobile} id="tasks">
 				<div className={"tasks"+visible}>
 					<TaskList active={true} tasks={this.state.tasks} project={this.state.project} name="Tasks" onAdd={this.addTask} onUpdate={this.updateTask} onRemove={this.removeTask} />
 				</div>
