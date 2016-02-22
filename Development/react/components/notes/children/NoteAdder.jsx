@@ -41,8 +41,8 @@ var NoteAdder = React.createClass({
 				<form className="add-form form-inline" onChange={this.selectChange} >
 					<select className="form-control type">
 						<option value="general">General</option>
-						<option value="to">To</option>
-						<option value="from">From</option>
+						<option value="to">Received</option>
+						<option value="from">Sent</option>
 						<option value="status">Status</option>
 					</select>
 					<button type="button" className="btn btn-primary submitbtn" onClick={this.onSubmit}>Submit</button>

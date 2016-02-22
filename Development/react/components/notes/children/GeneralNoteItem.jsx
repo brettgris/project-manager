@@ -71,8 +71,8 @@ var GeneralNoteItem = React.createClass({
 						<form className="add-form form-inline">
 							<select className="form-control type" onChange={self.selectChange} value={self.state.type} >
 								<option value="general">General</option>
-								<option value="to">To</option>
-								<option value="from">From</option>
+								<option value="to">Received</option>
+								<option value="from">Sent</option>
 								<option value="status">Status</option>
 							</select>
 							<button type="button" className="btn btn-primary submitbtn" onClick={self.onSubmit}>Submit</button>

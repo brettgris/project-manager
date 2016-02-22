@@ -3,8 +3,8 @@ var Reflux = require('reflux');
 var TasksActions = require('./TasksActions');
 
 var obj = {
-	a: "tomelyhounswethingtheyse",
-	b: "bd085c184dbb0dfb912c75800166e3a46bbe49d6"
+	a: "atiescouseaderaftendeare",
+	b: "439733e813b74f0a6a6207e313e55ddec07f8cc4"
 }
 
 var TasksStore = Reflux.createStore({

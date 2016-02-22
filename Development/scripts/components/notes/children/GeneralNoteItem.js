@@ -89,12 +89,12 @@ var GeneralNoteItem = React.createClass({
 							React.createElement(
 								'option',
 								{ value: 'to' },
-								'To'
+								'Received'
 							),
 							React.createElement(
 								'option',
 								{ value: 'from' },
-								'From'
+								'Sent'
 							),
 							React.createElement(
 								'option',
